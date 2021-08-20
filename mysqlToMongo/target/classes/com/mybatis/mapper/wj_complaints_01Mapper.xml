@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.mapper.wj_complaints_01Mapper">
+  <resultMap id="BaseResultMap" type="com.mybatis.model.wj_complaints_01">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="sourceUrl" jdbcType="VARCHAR" property="sourceurl" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="punishDate" jdbcType="VARCHAR" property="punishdate" />
+    <result column="reply" jdbcType="VARCHAR" property="reply" />
+    <result column="label1" jdbcType="VARCHAR" property="label1" />
+    <result column="label2" jdbcType="VARCHAR" property="label2" />
+    <result column="respondent" jdbcType="VARCHAR" property="respondent" />
+    <result column="replyTime" jdbcType="VARCHAR" property="replytime" />
+    <result column="number" jdbcType="VARCHAR" property="number" />
+    <result column="letterType" jdbcType="VARCHAR" property="lettertype" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, status, sourceUrl, title, content, punishDate, reply, label1, label2, respondent, 
+    replyTime, number, letterType
+  </sql>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from
+    wj_complaints_01
+  </select>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from wj_complaints_01
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from wj_complaints_01
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mybatis.model.wj_complaints_01">
+    insert into wj_complaints_01 (id, status, sourceUrl, 
+      title, content, punishDate, 
+      reply, label1, label2, 
+      respondent, replyTime, number, 
+      letterType)
+    values (#{id,jdbcType=INTEGER}, #{status,jdbcType=VARCHAR}, #{sourceurl,jdbcType=VARCHAR}, 
+      #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{punishdate,jdbcType=VARCHAR}, 
+      #{reply,jdbcType=VARCHAR}, #{label1,jdbcType=VARCHAR}, #{label2,jdbcType=VARCHAR}, 
+      #{respondent,jdbcType=VARCHAR}, #{replytime,jdbcType=VARCHAR}, #{number,jdbcType=VARCHAR}, 
+      #{lettertype,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mybatis.model.wj_complaints_01">
+    insert into wj_complaints_01
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="sourceurl != null">
+        sourceUrl,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="punishdate != null">
+        punishDate,
+      </if>
+      <if test="reply != null">
+        reply,
+      </if>
+      <if test="label1 != null">
+        label1,
+      </if>
+      <if test="label2 != null">
+        label2,
+      </if>
+      <if test="respondent != null">
+        respondent,
+      </if>
+      <if test="replytime != null">
+        replyTime,
+      </if>
+      <if test="number != null">
+        number,
+      </if>
+      <if test="lettertype != null">
+        letterType,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceurl != null">
+        #{sourceurl,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="punishdate != null">
+        #{punishdate,jdbcType=VARCHAR},
+      </if>
+      <if test="reply != null">
+        #{reply,jdbcType=VARCHAR},
+      </if>
+      <if test="label1 != null">
+        #{label1,jdbcType=VARCHAR},
+      </if>
+      <if test="label2 != null">
+        #{label2,jdbcType=VARCHAR},
+      </if>
+      <if test="respondent != null">
+        #{respondent,jdbcType=VARCHAR},
+      </if>
+      <if test="replytime != null">
+        #{replytime,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null">
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="lettertype != null">
+        #{lettertype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mybatis.model.wj_complaints_01">
+    update wj_complaints_01
+    <set>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceurl != null">
+        sourceUrl = #{sourceurl,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="punishdate != null">
+        punishDate = #{punishdate,jdbcType=VARCHAR},
+      </if>
+      <if test="reply != null">
+        reply = #{reply,jdbcType=VARCHAR},
+      </if>
+      <if test="label1 != null">
+        label1 = #{label1,jdbcType=VARCHAR},
+      </if>
+      <if test="label2 != null">
+        label2 = #{label2,jdbcType=VARCHAR},
+      </if>
+      <if test="respondent != null">
+        respondent = #{respondent,jdbcType=VARCHAR},
+      </if>
+      <if test="replytime != null">
+        replyTime = #{replytime,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null">
+        number = #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="lettertype != null">
+        letterType = #{lettertype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mybatis.model.wj_complaints_01">
+    update wj_complaints_01
+    set status = #{status,jdbcType=VARCHAR},
+      sourceUrl = #{sourceurl,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      punishDate = #{punishdate,jdbcType=VARCHAR},
+      reply = #{reply,jdbcType=VARCHAR},
+      label1 = #{label1,jdbcType=VARCHAR},
+      label2 = #{label2,jdbcType=VARCHAR},
+      respondent = #{respondent,jdbcType=VARCHAR},
+      replyTime = #{replytime,jdbcType=VARCHAR},
+      number = #{number,jdbcType=VARCHAR},
+      letterType = #{lettertype,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
